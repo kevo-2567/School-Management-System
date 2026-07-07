@@ -1,0 +1,95 @@
+﻿@model SchoolManagementSystem.Models.Student
+
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<h2 class="mb-4">
+    <i class="bi bi-person-vcard"></i> Student Details
+</h2>
+
+<div class="card shadow-sm">
+
+    <div class="card-header bg-primary text-white">
+        Student Profile
+    </div>
+
+    <div class="card-body">
+
+        <table class="table table-bordered">
+
+            <tr>
+                <th width="30%">Admission Number</th>
+                <td>@Model.AdmissionNumber</td>
+            </tr>
+
+            <tr>
+                <th>Full Name</th>
+                <td>@Model.FirstName @Model.MiddleName @Model.LastName</td>
+            </tr>
+
+            <tr>
+                <th>Gender</th>
+                <td>@Model.Gender</td>
+            </tr>
+
+            <tr>
+                <th>Date of Birth</th>
+                <td>@Model.DateOfBirth.ToShortDateString()</td>
+            </tr>
+
+            <tr>
+                <th>Phone</th>
+                <td>@Model.Phone</td>
+            </tr>
+
+            <tr>
+                <th>Email</th>
+                <td>@Model.Email</td>
+            </tr>
+
+            <tr>
+                <th>Address</th>
+                <td>@Model.Address</td>
+            </tr>
+
+            <tr>
+                <th>Guardian Name</th>
+                <td>@Model.GuardianName</td>
+            </tr>
+
+            <tr>
+                <th>Guardian Phone</th>
+                <td>@Model.GuardianPhone</td>
+            </tr>
+
+            <tr>
+                <th>Status</th>
+                <td>
+                    @if (Model.IsActive)
+                    {
+                        <span class="badge bg-success">Active</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Inactive</span>
+                    }
+                </td>
+            </tr>
+
+        </table>
+
+        <a asp-action="Edit"
+           asp-route-id="@Model.StudentId"
+           class="btn btn-warning">
+            <i class="bi bi-pencil-square"></i> Edit
+        </a>
+
+        <a asp-action="Index"
+           class="btn btn-secondary">
+            Back
+        </a>
+
+    </div>
+
+</div>
